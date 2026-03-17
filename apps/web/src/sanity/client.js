@@ -14,4 +14,7 @@ export async function getHomepage() {
   return homepage
 }
 
-// console.log(`Number of documents: ${data}`)
+export async function getArtworks() {
+  const artworks = await client.fetch('*[_type == "artwork"]')
+  return artworks
+}
