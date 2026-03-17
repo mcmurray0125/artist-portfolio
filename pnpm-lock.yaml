@@ -44,9 +44,15 @@ importers:
 
   apps/web:
     dependencies:
+      '@portabletext/react':
+        specifier: ^6.0.3
+        version: 6.0.3(react@19.2.4)
       '@sanity/client':
         specifier: ^7.17.0
         version: 7.17.0(debug@4.4.3)
+      '@sanity/image-url':
+        specifier: ^2.0.3
+        version: 2.0.3
       react:
         specifier: ^19.2.4
         version: 19.2.4

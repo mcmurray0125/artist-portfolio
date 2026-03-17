@@ -30,7 +30,7 @@ export default function Artwork() {
       {artworks ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {artworks.map((artwork) => (
-            <ArtTile key={artwork._id} artwork={artwork} />
+              <ArtTile key={artwork._id} {...artwork} />
           ))}
         </div>
       ) : (

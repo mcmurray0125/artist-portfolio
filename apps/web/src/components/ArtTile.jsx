@@ -1,13 +1,16 @@
 import { Link } from 'react-router';
+import { PortableText } from '@portabletext/react'
+import { urlFor } from '../sanity/utilities';
 
-const ArtTile = (artwork) => {
+const ArtTile = ({ images, title, description, _id }) => {
+  console.log('artwork in ArtTile:', { images, title, description, _id });
   return (
     <div className="rounded-lg shadow-md overflow-hidden">
-        <img src={artwork.image} alt={artwork.title} className="w-full h-48 object-cover" />
+      <img src={urlFor(images[0]).width(800).url()} alt={title} className="w-full h-48 object-cover" />
         <div className="p-4">
-            <h2 className="text-xl font-semibold mb-2">{artwork.title}</h2>
-            <p className="text-gray-600 mb-4">{artwork.description}</p>
-            <Link to={`/artwork/${artwork._id}`} className="text-blue-500 hover:underline">
+            <h2 className="text-xl font-semibold mb-2">{title}</h2>
+            <PortableText value={description} />
+            <Link to={`/artwork/${_id}`} className="text-blue-500 hover:underline">
                 View Details
             </Link>
         </div>
