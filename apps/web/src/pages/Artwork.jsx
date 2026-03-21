@@ -26,7 +26,7 @@ export default function Artwork() {
 
   return (
     <PageLayout>
-      <h1 className="text-4xl font-bold mb-4">Artwork</h1>
+      <h1 className="text-4xl text-gray-200 font-bold mb-4">Artwork</h1>
       {artworks ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {artworks.map((artwork) => (

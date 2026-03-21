@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <PageLayout>
       <h1 className="text-4xl font-bold mb-4">{homepage?.heroTitle || 'Placeholder Title'}</h1>
-      <p className="text-lg text-gray-700">
+      <p className="text-lg text-gray-300">
         {homepage?.heroSubtitle || 'Placeholder subtitle.'}
       </p>
     </PageLayout>
