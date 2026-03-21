@@ -2,8 +2,8 @@ import { Link } from 'react-router';
 
 const Header = () => {
   return (
-    <header className="bg-white shadow-md fixed w-full top-0">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+    <header className="shadow-md mt-header-top fixed w-full top-0">
+      <div className="container mx-auto h-header-height flex justify-between items-center">
         {/* Logo/Brand */}
         <div className="text-2xl font-bold text-gray-800">
           <Link to="/" className="hover:text-gray-600 transition-colors">
