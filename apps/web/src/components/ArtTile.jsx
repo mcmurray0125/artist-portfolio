@@ -6,7 +6,7 @@ const ArtTile = ({ images, title, description, _id }) => {
   console.log('artwork in ArtTile:', { images, title, description, _id });
   return (
     <div className="rounded-lg shadow-md overflow-hidden">
-      <img src={urlFor(images[0]).width(800).url()} alt={title} className="w-full h-48 object-cover" />
+      <img src={urlFor(images[0]).width(800).url()} alt={title} className="w-full h-auto object-cover" />
         <div className="p-4">
             <h2 className="text-xl font-semibold mb-2">{title}</h2>
             <PortableText value={description} />
