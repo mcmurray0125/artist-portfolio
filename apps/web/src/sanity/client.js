@@ -18,3 +18,8 @@ export async function getArtworks() {
   const artworks = await client.fetch('*[_type == "artwork"]')
   return artworks
 }
+
+export async function getArtworkBySlug(slug) {
+  const artwork = await client.fetch('*[_type == "artwork" && slug.current == $slug]', { slug })
+  return artwork[0]
+}
