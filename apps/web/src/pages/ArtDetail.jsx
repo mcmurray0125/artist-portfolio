@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import PageLayout from "../components/PageLayout";
+import ImageGallery from "../components/ImageGallery";
 import { getArtworkBySlug } from "../sanity/client";
 import { urlFor } from '../sanity/utilities';
 
@@ -29,10 +30,10 @@ export default function ArtDetail() {
   return (
     <PageLayout>
       {artwork ? (
-        <>
-          <img src={urlFor(artwork.images[0].asset).width(800).url()} alt={artwork.title} className="w-full h-auto object-cover mb-4" />
+        <div className="flex gap-4 h-full">
+          <ImageGallery images={artwork.images} />
           <h1 className="text-4xl text-gray-200 font-bold mb-4">{artwork.title}</h1>
-        </>
+        </div>
       ) : (
         <p>Loading artwork...</p>
       )}  
