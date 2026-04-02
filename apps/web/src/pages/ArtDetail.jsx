@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import PageLayout from "../components/PageLayout";
 import ImageGallery from "../components/ImageGallery";
+import { PortableText } from '@portabletext/react'
 import { getArtworkBySlug } from "../sanity/client";
 import { urlFor } from '../sanity/utilities';
 
@@ -30,9 +31,17 @@ export default function ArtDetail() {
   return (
     <PageLayout>
       {artwork ? (
-        <div className="flex gap-4 h-full">
+        <div className="flex flex-col lg:flex-row gap-8 h-full">
           <ImageGallery images={artwork.images} />
-          <h1 className="text-4xl text-gray-200 font-bold mb-4">{artwork.title}</h1>
+          <div id="artwork-detail" className="col flex flex-col gap-4">
+            <h1 className="text-4xl text-gray-200 font-bold mb-4">{artwork.title}</h1>
+            <p>Medium: {artwork.medium}</p>
+            <p>Dimensions: {artwork.dimensions}</p>
+            <p>Year: {artwork.year}</p>
+            <p>Price: ${artwork.price.toFixed(2)}</p>
+            <PortableText value={artwork.description} />
+          </div>
+
         </div>
       ) : (
         <p>Loading artwork...</p>
