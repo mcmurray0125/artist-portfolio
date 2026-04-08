@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import PageLayout from "../components/PageLayout";
 import { getHomepage } from "../sanity/client";
+import { urlFor } from '../sanity/utilities';
+import HomePageLayout from '../layouts/HomePageLayout';
 
 export default function Home() {
   const [homepage, setHomepage] = useState(null); // or [] if expecting an array
@@ -24,11 +25,22 @@ export default function Home() {
   }, []);
 
   return (
-    <PageLayout>
-      <h1 className="text-4xl font-bold mb-4">{homepage?.heroTitle || 'Placeholder Title'}</h1>
-      <p className="text-lg text-gray-300">
-        {homepage?.heroSubtitle || 'Placeholder subtitle.'}
-      </p>
-    </PageLayout>
+    <HomePageLayout>
+      <div>
+        <h1 className="text-4xl font-bold mb-4">{homepage?.heroTitle || 'Placeholder Title'}</h1>
+        <p className="text-lg text-gray-300">
+          {homepage?.heroSubtitle || 'Placeholder subtitle.'}
+        </p>
+      </div>
+      <div id="hero-image">
+        {homepage?.heroImage && (
+          <img
+            src={urlFor(homepage.heroImage)}
+            alt={homepage?.heroImageAlt || 'Placeholder image'}
+            className="w-full h-full object-cover"
+          />
+        )}
+      </div>
+    </HomePageLayout>
   )
 }
