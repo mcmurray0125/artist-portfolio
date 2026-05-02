@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { getHomepage } from "../sanity/client";
 import { urlFor } from '../sanity/utilities';
 import HomePageLayout from '../layouts/HomePageLayout';
+import { HomePageCarousel } from '../components/HomePageCarousel';
 
 export default function Home() {
   const [homepage, setHomepage] = useState(null); // or [] if expecting an array
@@ -32,6 +33,7 @@ export default function Home() {
           {homepage?.heroSubtitle || 'Placeholder subtitle.'}
         </p>
       </div>
+      <HomePageCarousel featuredArtworks={homepage?.featuredArtworks} />
       <div id="hero-image">
         {homepage?.heroImage && (
           <img

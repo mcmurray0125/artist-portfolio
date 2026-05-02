@@ -72,5 +72,11 @@ export const artwork = defineType({
       type: 'number'
     })
 
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      media: 'images.0.asset'
+    }
+  },
 })
