@@ -13,6 +13,8 @@
     "@portabletext/react": "^6.0.3",
     "@sanity/client": "^7.17.0",
     "@sanity/image-url": "^2.0.3",
+    "embla-carousel-react": "^8.6.0",
+    "embla-carousel-wheel-gestures": "^8.1.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router": "^7.13.1"

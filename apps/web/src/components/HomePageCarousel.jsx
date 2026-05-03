@@ -5,6 +5,7 @@ import {
   PrevButton,
   usePrevNextButtons
 } from './CarouselArrowButton'
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
 import { DotButton, useDotButton } from './CarouselDotButton'
 import '../styles/carousel.css'
 import CarouselTile from './CarouselTile'
@@ -29,9 +30,14 @@ export const HomePageCarousel = ({ featuredArtworks }) => {
   }
 
   const options = {
-    loop: true
-  }
-  const [emblaRef, emblaApi] = useEmblaCarousel(options)
+    loop: true,
+    skipSnaps: true,
+    inViewMargin: '0px -16px 0px 0px'
+  };
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [
+    WheelGesturesPlugin(),
+  ]);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi)
