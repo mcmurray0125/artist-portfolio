@@ -10,6 +10,7 @@ import { DotButton, useDotButton } from './CarouselDotButton'
 import '../styles/carousel.css'
 import CarouselTile from './CarouselTile'
 import QuickViewModal from './QuickViewModal'
+import waveform from '../assets/waveform.jpg'
 
 export const HomePageCarousel = ({ featuredArtworks }) => {
   const [selectedArtwork, setSelectedArtwork] = useState(null)
@@ -85,6 +86,7 @@ export const HomePageCarousel = ({ featuredArtworks }) => {
           />
         )}
       </div>
+      <img src={waveform} alt="Waveform" className="homepage-carousel-backdrop"/>
     </div>
   )
 }

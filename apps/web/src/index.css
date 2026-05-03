@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
- --spacing-header-top: 8px;
+ --spacing-header-top: 12px;
  --spacing-header-height: 64px;
  --spacing-header-total: calc(var(--spacing-header-top) + var(--spacing-header-height));
  --color-gray: gray;
