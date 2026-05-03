@@ -1,0 +1,3 @@
+Netlify files setup, still need to integrate netlify-cli commands into the pnpm setup.
+And make sure env variables are set.
+How to integrate Netlify CLI into pnpm app
