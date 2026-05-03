@@ -1,9 +1,14 @@
+.carousel-wrapper {
+  min-height: inherit;
+  display: flex;
+}
+
 .embla {
   max-width: calc(100dvw - 150px);
   margin: auto;
 
   --slide-height: 573px;
-  --slide-spacing: 1rem;
+  --slide-spacing: 3rem;
   --slide-size: 70%;
   position: relative;
 }
