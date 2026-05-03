@@ -2,9 +2,10 @@
   max-width: calc(100dvw - 150px);
   margin: auto;
 
-  --slide-height: 19rem;
+  --slide-height: 573px;
   --slide-spacing: 1rem;
   --slide-size: 70%;
+  position: relative;
 }
 
 .embla__viewport {
@@ -19,9 +20,14 @@
 
 .embla__slide {
   transform: translate3d(0, 0, 0);
-  flex: 0 0 var(--slide-size);
+  flex: 0 0 auto;
   min-width: 0;
+  max-height: 80%;
   padding-left: var(--slide-spacing);
+}
+
+.embla__slide img {
+  height: var(--slide-height);
 }
 
 .embla__slide__number {
@@ -91,4 +97,8 @@
 .embla__button__svg {
   width: 35%;
   height: 35%;
+}
+
+.carousel-tile img {
+  max-height: 80vh;
 }

@@ -38,7 +38,7 @@ export default function ArtDetail() {
             <p>Medium: {artwork.medium}</p>
             <p>Dimensions: {artwork.dimensions}</p>
             <p>Year: {artwork.year}</p>
-            <p>Price: ${artwork.price.toFixed(2)}</p>
+            <p>Price: ${artwork.price?.toFixed(2)}</p>
             <PortableText value={artwork.description} />
           </div>
 

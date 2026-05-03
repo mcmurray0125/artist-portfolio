@@ -27,14 +27,8 @@ export default function Home() {
 
   return (
     <HomePageLayout>
-      <div>
-        <h1 className="text-4xl font-bold mb-4">{homepage?.heroTitle || 'Placeholder Title'}</h1>
-        <p className="text-lg text-gray-300">
-          {homepage?.heroSubtitle || 'Placeholder subtitle.'}
-        </p>
-      </div>
       <HomePageCarousel featuredArtworks={homepage?.featuredArtworks} />
-      <div id="hero-image">
+      {/* <div id="hero-image">
         {homepage?.heroImage && (
           <img
             src={urlFor(homepage.heroImage)}
@@ -42,7 +36,7 @@ export default function Home() {
             className="w-full h-full object-cover"
           />
         )}
-      </div>
+      </div> */}
     </HomePageLayout>
   )
 }

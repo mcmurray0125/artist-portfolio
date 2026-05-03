@@ -10,7 +10,7 @@ export const client = createClient({
 })
 
 export async function getHomepage() {
-  const homepage = await client.fetch('*[_type == "homepage"]')
+  const homepage = await client.fetch('*[_type == "homepage"] { ..., "featuredArtworks": featuredArtworks[]-> }')
   return homepage
 }
 
