@@ -1,0 +1,12 @@
+[build]
+  command = "pnpm --filter studio build"
+  publish = "apps/studio/dist"
+  functions = "apps/studio/netlify/functions"
+
+[dev]
+  functions = "apps/studio/netlify/functions"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
