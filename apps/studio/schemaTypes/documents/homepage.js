@@ -25,13 +25,6 @@ export const homepage = defineType({
     }),
 
     defineField({
-      name: 'carouselImages',
-      title: 'Carousel Images',
-      type: 'array',
-      of: [{ type: 'image', options: {hotspot: true} }]
-    }),
-
-    defineField({
       name: 'featuredArtworks',
       title: 'Featured Artworks',
       type: 'array',
