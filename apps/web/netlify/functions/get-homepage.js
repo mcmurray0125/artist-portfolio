@@ -1,4 +1,4 @@
-import client from './sanityClient.js'
+import { client } from './sanityClient.js'
 
 export const handler = async function () {
   try {
