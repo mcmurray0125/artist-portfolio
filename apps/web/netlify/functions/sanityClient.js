@@ -1,6 +1,6 @@
-const sanityClient = require('@sanity/client')
+import { createClient } from '@sanity/client'
 
-const client = sanityClient({
+const client = createClient({
   projectId: process.env.SANITY_PROJECT_ID || '7w09x003',
   dataset: process.env.SANITY_DATASET || 'production',
   apiVersion: '2026-03-14',
@@ -8,4 +8,4 @@ const client = sanityClient({
   token: process.env.SANITY_API_TOKEN,
 })
 
-module.exports = client
+export default client

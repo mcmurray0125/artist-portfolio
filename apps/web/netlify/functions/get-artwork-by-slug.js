@@ -1,6 +1,6 @@
-const client = require('./sanityClient')
+import client from './sanityClient.js'
 
-exports.handler = async function (event) {
+export const handler = async function (event) {
   const slug = event.queryStringParameters?.slug
 
   if (!slug) {
@@ -20,7 +20,7 @@ exports.handler = async function (event) {
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(artwork[0] || null),
+      body: JSON.stringify(artwork),
     }
   } catch (error) {
     return {

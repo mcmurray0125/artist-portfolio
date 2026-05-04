@@ -1,6 +1,6 @@
-const client = require('./sanityClient')
+import client from './sanityClient.js'
 
-exports.handler = async function () {
+export const handler = async function () {
   try {
     const artworks = await client.fetch('*[_type == "artwork"]')
     return {
