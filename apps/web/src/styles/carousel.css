@@ -20,7 +20,6 @@
   width: 1053px;
   max-width: calc(100dvw - 120px);
   margin: auto;
-
   --slide-height: 573px;
   --slide-spacing: 3rem;
   --slide-size: 70%;
@@ -30,6 +29,12 @@
 
 .embla__viewport {
   overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.embla.loaded .embla__viewport {
+  opacity: 1;
 }
 
 .embla__container {

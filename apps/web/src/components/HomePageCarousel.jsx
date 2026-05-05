@@ -16,6 +16,7 @@ export const HomePageCarousel = ({ featuredArtworks }) => {
   const [selectedArtwork, setSelectedArtwork] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [firstImageLoaded, setFirstImageLoaded] = useState(false)
 
   const handleTileClick = (artwork) => {
     setSelectedArtwork(artwork)
@@ -51,17 +52,19 @@ export const HomePageCarousel = ({ featuredArtworks }) => {
 
   return (
     <div className='carousel-wrapper'>
-      <div className="embla">
+      <div className={`embla ${firstImageLoaded ? 'loaded' : ''}`}>
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
             {featuredArtworks?.map((artwork, index) => (
               <CarouselTile
                 key={index}
+                index={index}
                 images={artwork.images}
                 title={artwork.title}
                 description={artwork.description}
                 slug={artwork.slug}
                 onClick={() => handleTileClick(artwork)}
+                onFirstImageLoad={() => setFirstImageLoaded(true)}
               />
             ))}
           </div>
@@ -86,6 +89,7 @@ export const HomePageCarousel = ({ featuredArtworks }) => {
           />
         )}
       </div>
+      {/* Backdrop Image */}
       <img src={waveform} alt="Waveform" className="homepage-carousel-backdrop"/>
     </div>
   )
