@@ -8,7 +8,7 @@ import { urlFor } from '../sanity/utilities';
 
 export default function ArtDetail() {
   const { artworkSlug } = useParams();
-  const [artwork, setArtwork] = useState(null);
+  const [artwork, setArtwork] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -16,8 +16,8 @@ export default function ArtDetail() {
     async function fetchData() {
       try {
         const data = await getArtworkBySlug(artworkSlug);
-        setArtwork(data);
-        console.log('Fetched artwork data:', data); // Now logs the actual data
+        setArtwork(data[0]);
+        console.log('Fetched artwork data:', data[0]); // Now logs the actual data
       } catch (err) {
         setError(err);
         console.error('Error fetching artwork:', err);

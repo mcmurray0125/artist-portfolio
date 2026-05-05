@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { urlFor } from '../sanity/utilities';
 
-const ImageGallery = ({ images }) => {
+const ImageGallery = ( {images} ) => {
   const [allImages, setAllImages] = useState(images);
   const [primaryImage, setPrimaryImage] = useState(images[0].asset);
 
@@ -15,7 +15,7 @@ const ImageGallery = ({ images }) => {
             <img className="h-auto max-w-full rounded-base" src={urlFor(primaryImage).url()} alt=""/>
         </div>
         {/* Render Thumbnail if there are multiple images */}
-        {allImages.length > 1 && (
+        {allImages && allImages.length > 1 && (
           <div className="thumbnail-images flex gap-2">
             {allImages.map((image, index) => (
               <button onClick={() => handleImageClick(image)} key={index}>
