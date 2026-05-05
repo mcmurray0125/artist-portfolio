@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Artist Portfolio Content Operations",
   "scripts": {
-    "dev": "pnpm run --parallel dev",
+    "dev": "pnpm --filter studio exec npm run dev & pnpm --filter web exec netlify dev",
     "build": "pnpm run --parallel build"
   },
   "engines": {
