@@ -28,6 +28,7 @@ export default function Home() {
   return (
     <HomePageLayout>
       <HomePageCarousel featuredArtworks={homepage?.featuredArtworks} />
+      {/* <h3>Legal Text</h3> */}
       {/* <div id="hero-image">
         {homepage?.heroImage && (
           <img
