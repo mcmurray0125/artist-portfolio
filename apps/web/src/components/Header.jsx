@@ -26,10 +26,10 @@ const Header = () => {
             </Link>
           </div>
           <div className="socials">
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="bg-gray text-gray-500">
+            <a href="https://www.instagram.com/space.kowboi/" target="_blank" rel="noopener noreferrer" className="bg-gray text-gray-500">
               <i className="fab fa-instagram"></i>
             </a>
-            <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" className="bg-gray text-gray-500">
+            <a href="https://www.tiktok.com/@spacekowboi" target="_blank" rel="noopener noreferrer" className="bg-gray text-gray-500">
               <i className="fab fa-tiktok"></i>
             </a>
 
