@@ -19,6 +19,12 @@ export const homepage = defineType({
     }),
 
     defineField({
+      name: 'homepageDisclaimer',
+      title: 'Homepage Disclaimer',
+      type: 'text'
+    }),
+
+    defineField({
       name: 'heroImage',
       title: 'Hero Image',
       type: 'image'

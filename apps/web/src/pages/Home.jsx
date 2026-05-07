@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getHomepage } from "../sanity/client";
 import { urlFor } from '../sanity/utilities';
+import { PortableText } from '@portabletext/react';
 import HomePageLayout from '../layouts/HomePageLayout';
 import { HomePageCarousel } from '../components/HomePageCarousel';
 
@@ -28,7 +29,9 @@ export default function Home() {
   return (
     <HomePageLayout>
       <HomePageCarousel featuredArtworks={homepage?.featuredArtworks} />
-      {/* <h3>Legal Text</h3> */}
+      {homepage?.homepageDisclaimer && (
+        <small className='homepage-disclaimer'>{homepage.homepageDisclaimer}</small>
+      )}
       {/* <div id="hero-image">
         {homepage?.heroImage && (
           <img
