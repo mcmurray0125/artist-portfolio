@@ -5,7 +5,7 @@ import { urlFor } from '../sanity/utilities';
 const CarouselTile = ({ index, images, title, description, slug, onClick, onFirstImageLoad }) => {
   return (
     <div className="carousel-tile embla__slide">
-      <button className="cursor-pointer" type='button' onClick={onClick}>
+      <Link to={`/artwork-detail/${slug}`}>
         <img
           src={urlFor(images[0]).width(1800).url()}
           alt={title}
@@ -13,7 +13,7 @@ const CarouselTile = ({ index, images, title, description, slug, onClick, onFirs
           className="w-full object-cover"
           onLoad={index === 0 ? onFirstImageLoad : undefined}
         />
-      </button>
+      </Link>
     </div>
   );
 };

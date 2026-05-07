@@ -18,6 +18,14 @@ export const HomePageCarousel = ({ featuredArtworks }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [firstImageLoaded, setFirstImageLoaded] = useState(false)
 
+  const options = {
+    loop: true,
+    skipSnaps: true,
+    inViewMargin: '0px 48px 0px 0px'
+  };
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [WheelGesturesPlugin()]);
+
   const handleTileClick = (artwork) => {
     setSelectedArtwork(artwork)
     setIsModalOpen(true)
@@ -29,16 +37,6 @@ export const HomePageCarousel = ({ featuredArtworks }) => {
     setSelectedArtwork(null)
     setCurrentImageIndex(0)
   }
-
-  const options = {
-    loop: true,
-    skipSnaps: true,
-    inViewMargin: '0px 48px 0px 0px'
-  };
-
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    WheelGesturesPlugin(),
-  ]);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi)
@@ -62,7 +60,7 @@ export const HomePageCarousel = ({ featuredArtworks }) => {
                 images={artwork.images}
                 title={artwork.title}
                 description={artwork.description}
-                slug={artwork.slug}
+                slug={artwork.slug.current}
                 onClick={() => handleTileClick(artwork)}
                 onFirstImageLoad={() => setFirstImageLoaded(true)}
               />
@@ -90,7 +88,7 @@ export const HomePageCarousel = ({ featuredArtworks }) => {
         )}
       </div>
       {/* Backdrop Image */}
-      <img src={waveform} alt="Waveform" className="homepage-carousel-backdrop"/>
+      <img src={waveform} alt="Waveform" className="homepage-carousel-backdrop" />
     </div>
   )
 }
