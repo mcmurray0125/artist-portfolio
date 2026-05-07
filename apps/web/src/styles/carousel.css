@@ -47,7 +47,6 @@
   transform: translate3d(0, 0, 0);
   flex: 0 0 auto;
   min-width: 0;
-  max-height: 80%;
   padding-left: var(--slide-spacing);
 }
 
@@ -123,8 +122,4 @@
 .embla__button__svg {
   width: 35%;
   height: 35%;
-}
-
-.carousel-tile img {
-  max-height: 80vh;
 }
