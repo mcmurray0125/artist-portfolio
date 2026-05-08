@@ -2,6 +2,12 @@
   display: flex;
   position: relative;
   margin-top: 6rem;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-wrapper.loaded {
+  opacity: 1;
 }
 
 .homepage-carousel-backdrop {
@@ -29,12 +35,6 @@
 
 .embla__viewport {
   overflow: hidden;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.embla.loaded .embla__viewport {
-  opacity: 1;
 }
 
 .embla__container {

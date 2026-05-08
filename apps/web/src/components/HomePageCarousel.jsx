@@ -49,8 +49,8 @@ export const HomePageCarousel = ({ featuredArtworks }) => {
   } = usePrevNextButtons(emblaApi)
 
   return (
-    <div className='carousel-wrapper'>
-      <div className={`embla ${firstImageLoaded ? 'loaded' : ''}`}>
+    <div className={`carousel-wrapper ${firstImageLoaded ? 'loaded' : ''}`}>
+      <div className="embla">
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
             {featuredArtworks?.map((artwork, index) => (
