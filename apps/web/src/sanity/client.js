@@ -11,6 +11,10 @@ export async function getHomepage() {
   return getJsonFromFunction('/.netlify/functions/get-homepage')
 }
 
+export async function getAbout() {
+  return getJsonFromFunction('/.netlify/functions/get-about')
+}
+
 export async function getArtworks() {
   return getJsonFromFunction('/.netlify/functions/get-artworks')
 }
