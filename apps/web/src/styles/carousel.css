@@ -120,6 +120,12 @@
 }
 
 .embla__button__svg {
-  width: 35%;
-  height: 35%;
+  width: 60%;
+  height: 60%;
+  color: #e2e2e2;
+  transition: 0.2s;
+}
+
+.embla__button:hover svg {
+  color: white;
 }
