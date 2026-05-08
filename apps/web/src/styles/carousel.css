@@ -52,6 +52,11 @@
 
 .embla__slide img {
   height: var(--slide-height);
+  transition: 2s cubic-bezier(0.3, 0.89, 0.87, 0.75);
+}
+
+.embla__slide img:hover {
+  transform: scale(1.075);
 }
 
 .embla__slide__number {
