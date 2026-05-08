@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import PageLayout from "../components/PageLayout";
+import GridLayout from '../layouts/GridLayout';
 import { getArtworks } from "../sanity/client";
 import ArtTile from "../components/ArtTile";
 
@@ -25,17 +25,17 @@ export default function Artwork() {
   }, []);
 
   return (
-    <PageLayout>
+    <GridLayout>
       <h1 className="text-4xl text-gray-200 font-bold mb-4">Artwork</h1>
       {artworks ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {artworks.map((artwork) => (
-              <ArtTile key={artwork._id} {...artwork} />
+            <ArtTile key={artwork._id} {...artwork} />
           ))}
         </div>
       ) : (
         <p>Loading artworks...</p>
-      )}  
-    </PageLayout>
+      )}
+    </GridLayout>
   )
 }
