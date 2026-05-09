@@ -30,14 +30,17 @@ export default function ArtDetail() {
   return (
     <PageLayout>
       {artwork ? (
-        <div className="flex flex-col lg:flex-row gap-8 h-full">
-          <div className="lg:w-1/2">
-            <ImageGallery images={artwork.images} />
+        <>
+          <h1 className="text-2xl my-4 w-half font-semibold">{artwork.title}</h1>
+          <div className="flex flex-col lg:flex-row gap-8 h-full">
+            <div className="lg:w-1/2">
+              <ImageGallery images={artwork.images} />
+            </div>
+            <div id="artwork-detail" className="lg:w-1/2 flex flex-col gap-4">
+              <Details artwork={artwork} />
+            </div>
           </div>
-          <div id="artwork-detail" className="lg:w-1/2 flex flex-col gap-4 mt-8">
-            <Details artwork={artwork} />
-          </div>
-        </div>
+        </>
       ) : (
         <p>Loading artwork...</p>
       )}
