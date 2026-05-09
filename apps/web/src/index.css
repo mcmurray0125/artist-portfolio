@@ -39,6 +39,7 @@ nav a {
   font-weight: 300;
   text-decoration: inherit;
   letter-spacing: 1.5px;
+  transition: 0.3s;
 }
 
 .socials {
@@ -91,15 +92,18 @@ h1 {
   font-weight: 600;
 }
 
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@media (prefers-color-scheme: dark) {
+  body, :root {
+    color: white;
+    background-color: #000000;
   }
   a:hover {
-    color: #747bff;
+    background-color: #f9f9f9;
   }
   button {
     background-color: #f9f9f9;
   }
-} */
+  h1 {
+    color: white;
+  }
+}
