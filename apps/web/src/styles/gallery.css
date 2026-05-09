@@ -1,0 +1,7 @@
+.process-images {
+    flex-wrap: wrap;
+}
+
+.process-image-wrapper {
+    flex: 1 1 32%;
+}

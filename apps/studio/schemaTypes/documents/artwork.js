@@ -5,27 +5,46 @@ export const artwork = defineType({
   title: 'Artwork',
   type: 'document',
   fields: [
-
     defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required()
     }),
 
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: { source: 'title', maxLength: 96 },
-      validation: Rule => Rule.required()
+      options: {source: 'title', maxLength: 96},
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
       name: 'images',
       title: 'Images',
       type: 'array',
-      of: [{ type: 'image', options: {hotspot: true} }]
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: {
+              previews: [
+                {title: '3:4', aspectRatio: 3 / 4},
+                {title: 'Square', aspectRatio: 1 / 1},
+                {title: '4:5', aspectRatio: 4 / 5},
+                {title: '16:9', aspectRatio: 16 / 9},
+              ]
+            }
+          },
+          fields: [
+            defineField({
+              name: 'caption',
+              type: 'string',
+            })
+          ]
+        }
+      ]
     }),
 
     defineField({
@@ -71,12 +90,11 @@ export const artwork = defineType({
       title: 'Price',
       type: 'number'
     })
-
   ],
   preview: {
     select: {
       title: 'title',
       media: 'images.0.asset'
     }
-  },
+  }
 })

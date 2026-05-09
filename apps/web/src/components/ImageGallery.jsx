@@ -1,26 +1,27 @@
 import { useState } from 'react';
 import { urlFor } from '../sanity/utilities';
+import "../styles/gallery.css"
 
 const ImageGallery = ({ images }) => {
   const [allImages, setAllImages] = useState(images);
-  const [primaryImage, setPrimaryImage] = useState(images[0].asset);
+  console.log(allImages);
 
   function handleImageClick(image) {
-    setPrimaryImage(image);
+    console.log('image clicked', image);
   }
 
   return (
     <>
-      <div className="primary-image">
-        <img className="h-auto max-w-full rounded-base" src={urlFor(primaryImage).url()} alt="" />
-      </div>
       {/* Render Thumbnail if there are multiple images */}
-      {allImages && allImages.length > 1 && (
-        <div className="thumbnail-images flex gap-2">
+      {allImages && (
+        <div className="process-images flex gap-2">
           {allImages.map((image, index) => (
-            <button onClick={() => handleImageClick(image)} key={index}>
-              <img className="h-auto max-w-full rounded-base" src={urlFor(image.asset).url()} alt="" />
-            </button>
+            <div className="process-image-wrapper" key={index}>
+              <button className='process-image-button' onClick={() => handleImageClick(image)}>
+                <img className="h-auto max-w-full rounded-base" src={urlFor(image.asset).url()} alt="" />
+              </button>
+              {image.caption && <p className="text-sm text-gray-500">{image.caption}</p>}
+            </div>
           ))}
         </div>
       )}
