@@ -26,7 +26,7 @@ export default function Artwork() {
 
   return (
     <GridLayout>
-      <h1 className="text-4xl text-gray-200 mb-4">Works</h1>
+      <h1 className="text-4xl text-gray-200 my-4">Works</h1>
       {artworks ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {artworks.map((artwork) => (
