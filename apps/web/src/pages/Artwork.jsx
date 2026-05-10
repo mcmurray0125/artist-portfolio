@@ -58,16 +58,6 @@ export default function Artwork() {
             ))}
           </div>
         )) : <p>Loading grouped artworks...</p>}
-        {groupsOfThree ? groupsOfThree.map((group, index) => (
-          <div key={index} className="grid gap-4 h-min">
-            {group.map((artwork) => (
-              <div key={artwork._id}>
-                {/* <img src={urlFor(artwork.images[0]).width(800).url()} alt={artwork.title} className="h-auto max-w-full rounded-base" /> */}
-                <ArtTile key={artwork._id} {...artwork} />
-              </div>
-            ))}
-          </div>
-        )) : <p>Loading grouped artworks...</p>}
       </div>
     </GridLayout>
   )
