@@ -20,7 +20,7 @@ const ImageGallery = ({ images }) => {
               <button className='process-image-button' onClick={() => handleImageClick(image)}>
                 <img className="h-auto max-w-full rounded-base" src={urlFor(image.asset).url()} alt="" />
               </button>
-              {image.caption && <p className="text-sm text-gray-500">{image.caption}</p>}
+              {image.caption && <p className="text-sm">{image.caption}</p>}
             </div>
           ))}
         </div>
