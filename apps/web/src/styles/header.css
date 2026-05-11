@@ -1,0 +1,66 @@
+header {
+    z-index: 300;
+}
+
+nav a {
+    color: white;
+    background-color: black;
+}
+
+@media (max-width: 1023px) {
+    nav {
+        background-color: white;
+        position: absolute;
+        top: 0;
+        height: 100vh;
+        align-items: start;
+        transform: translateY(-100%);
+        transition: 300ms ease-in-out;
+    }
+
+    nav.open {
+        transform: translateY(0%);
+    }
+
+    nav a {
+        color: black;
+        background-color: white;
+    }
+
+    .header-items-wrapper {
+        position: relative;
+    }
+
+    .socials {
+        padding-left: 1rem;
+    }
+
+    .menu-links {
+        z-index: 43244;
+        width: 100vw;
+        background: white;
+    }
+
+    .mobile-menu-header {
+        padding: 1rem;
+        gap: 8px;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .mobile-menu-close i,
+    .hamburger i {
+        font-size: 1.75rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        nav,
+        .menu-links {
+            background-color: black;
+        }
+        nav a {
+            color: white;
+            background-color: black;
+        }
+    }
+}

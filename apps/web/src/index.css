@@ -32,11 +32,9 @@
 nav {
   gap: 2rem;
   width: 100%;
-  justify-content: space-between;
   max-width: 1053px;
 }
 nav a {
-  color: white;
   font-weight: 300;
   text-decoration: inherit;
   letter-spacing: 1.5px;
@@ -99,9 +97,6 @@ h1 {
     background-color: #000000;
   }
   a:hover {
-    background-color: #f9f9f9;
-  }
-  button {
     background-color: #f9f9f9;
   }
   h1 {

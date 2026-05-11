@@ -1,15 +1,32 @@
 import { Link } from 'react-router';
+import { useState } from 'react';
+import "../styles/header.css"
 
 const Header = () => {
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+  const setMobileOpen = () => {
+    setIsMobileOpen(!isMobileOpen);
+  };
+
   return (
-    <header className="shadow-md bg-gray-500 mt-header-top fixed w-full top-0">
-      <div className="container mx-auto h-header-height flex justify-center items-center">
+    <header className="shadow-md bg-gray-500 lg:mt-header-top fixed w-full top-0">
+      <div className="container header-items-wrapper mx-auto h-header-height flex lg:justify-center items-center">
 
         {/* Navigation */}
-        <nav className="hidden lg:flex items-center">
-          {/* Logo/Brand */}
-          <div className="flex gap-8">
-            <Link to="/" className="text-base px-6 py-3 brand text-black uppercase hover:text-gray-600 whitespace-nowrap transition-colors">
+        <nav className={`flex flex-col lg:flex-row items-center lg:justify-between ${isMobileOpen ? 'open' : ''}`}>
+          {/* Mobile Menu Header */}
+          <div className='mobile-menu-header flex lg:hidden'>
+            <Link to="/" className="brand text-base px-6 py-3 text-black uppercase hover:text-gray-600 whitespace-nowrap transition-colors">
+              Jake Germann Art
+            </Link>
+            <button onClick={() => setMobileOpen()} className="mobile-menu-close">
+              <i className="fa-solid fa-square-xmark text-gray"></i>
+            </button>
+          </div>
+          {/* Main Links */}
+          <div className="menu-links flex flex-col lg:flex-row gap-8">
+            <Link to="/" className="brand hidden lg:block text-base px-6 py-3 text-black uppercase hover:text-gray-600 whitespace-nowrap transition-colors">
               Jake Germann Art
             </Link>
             <Link to="/" className="text-base bg-black uppercase px-6 py-3 text-gray-700 hover:text-gray-900 transition-colors">
@@ -38,31 +55,14 @@ const Header = () => {
 
 
         {/* Mobile Menu Button */}
-        <div className="lg:hidden">
-          <button className="text-gray-700 hover:text-gray-900 focus:outline-none">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+        <div className="mobile-header flex items-center justify-between w-full p-3 lg:hidden">
+          <Link to="/" className="brand text-base px-6 py-3 text-black uppercase hover:text-gray-600 whitespace-nowrap transition-colors">
+              Jake Germann Art
+            </Link>
+          <button onClick={() => setMobileOpen()} className="hamburger text-gray-700 hover:text-gray-900 focus:outline-none">
+            <i className="text-gray fa-solid fa-bars"></i>
           </button>
         </div>
-      </div>
-
-      {/* Mobile Navigation (hidden by default, can be toggled with state) */}
-      <div className="md:hidden hidden bg-gray-50 px-4 py-2">
-        <nav className="flex flex-col space-y-2">
-          <Link to="/" className="text-gray-700 hover:text-gray-900 py-2 transition-colors">
-            Home
-          </Link>
-          <Link to="/about" className="text-gray-700 hover:text-gray-900 py-2 transition-colors">
-            About
-          </Link>
-          <Link to="/portfolio" className="text-gray-700 hover:text-gray-900 py-2 transition-colors">
-            Portfolio
-          </Link>
-          <Link to="/contact" className="text-gray-700 hover:text-gray-900 py-2 transition-colors">
-            Contact
-          </Link>
-        </nav>
       </div>
     </header>
   );
