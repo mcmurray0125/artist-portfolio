@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 const Header = () => {
   return (
     <header className="shadow-md bg-gray-500 mt-header-top fixed w-full top-0">
-      <div className="container mx-auto h-header-height flex justify-between items-center">
+      <div className="container mx-auto h-header-height flex justify-center items-center">
 
         {/* Navigation */}
         <nav className="hidden lg:flex items-center">

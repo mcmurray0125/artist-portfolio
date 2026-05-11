@@ -33,6 +33,7 @@ nav {
   gap: 2rem;
   width: 100%;
   justify-content: space-between;
+  max-width: 1053px;
 }
 nav a {
   color: white;
