@@ -52,7 +52,7 @@ nav a {
 
     .mobile-menu-close i,
     .hamburger i {
-        font-size: 1.75rem;
+        font-size: 22px;
     }
 
     @media (prefers-color-scheme: dark) {
