@@ -15,18 +15,19 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: auto;
-  height: 500px;
+  width: 1540px;
+  height: 590px;
   object-fit: cover;
   opacity: 1;
+  box-shadow: rgba(0, 0, 0, 0.34) 0px 21px 28px 7px;
   filter: grayscale(100%);
 }
 
 .embla {
-  width: 1053px;
+  width: 1211px;
   max-width: calc(100dvw - 120px);
   margin: auto;
-  --slide-height: 573px;
+  --slide-height: 681px;
   --slide-spacing: 3rem;
   --slide-size: 70%;
   position: relative;
@@ -133,4 +134,10 @@
 
 .embla__button:hover svg {
   color: white;
+}
+
+@media (max-width: 1023px) {
+  .carousel-wrapper {
+    margin-top: 0;
+  }
 }
