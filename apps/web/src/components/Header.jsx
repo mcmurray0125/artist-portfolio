@@ -43,10 +43,10 @@ const Header = () => {
             </Link>
           </div>
           <div className="socials">
-            <a href="https://www.instagram.com/space.kowboi/" target="_blank" rel="noopener noreferrer" className="bg-gray text-gray-500">
+            <a href="https://www.instagram.com/space.kowboi/" target="_blank" rel="noopener noreferrer" className="text-gray-500">
               <i className="fab fa-instagram"></i>
             </a>
-            <a href="https://www.tiktok.com/@spacekowboi" target="_blank" rel="noopener noreferrer" className="bg-gray text-gray-500">
+            <a href="https://www.tiktok.com/@spacekowboi" target="_blank" rel="noopener noreferrer" className="text-gray-500">
               <i className="fab fa-tiktok"></i>
             </a>
 
@@ -57,8 +57,8 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <div className="mobile-header flex items-center justify-between w-full p-3 lg:hidden">
           <Link to="/" className="brand text-base px-6 py-3 text-black uppercase hover:text-gray-600 whitespace-nowrap transition-colors">
-              Jake Germann Art
-            </Link>
+            Jake Germann Art
+          </Link>
           <button onClick={() => setMobileOpen()} className="hamburger text-gray-700 hover:text-gray-900 focus:outline-none">
             <i className="text-gray fa-solid fa-bars"></i>
           </button>
