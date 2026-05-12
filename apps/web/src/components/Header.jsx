@@ -29,15 +29,22 @@ const Header = () => {
             <Link to="/" className="brand hidden lg:block text-base px-6 py-3 text-black uppercase hover:text-gray-600 whitespace-nowrap transition-colors">
               Jake Germann Art
             </Link>
-            <Link to="/" className="text-base bg-black uppercase px-6 py-3 text-gray-700 hover:text-gray-900 transition-colors">
-              Home
-            </Link>
             <Link to="/about" className="text-base bg-black uppercase px-6 py-3 text-gray-700 hover:text-gray-900 transition-colors">
               About
             </Link>
             <Link to="/artwork" className="text-base bg-black uppercase px-6 py-3 text-gray-700 hover:text-gray-900 transition-colors">
               Portfolio
             </Link>
+            <div className="nav-link-group">
+              <Link to="#" className="text-base bg-black uppercase px-6 py-3 text-gray-700 hover:text-gray-900 transition-colors">
+                Shop
+              </Link>
+              <div className="nav-dropdown">
+                <Link to="https://www.artstation.com/spacekowboi/prints" target="_blank" className="text-base bg-black uppercase px-6 py-3 text-gray-700 hover:text-gray-900 transition-colors">
+                  Prints
+                </Link>
+              </div>
+            </div>
             <Link to="/contact" className="text-base bg-black uppercase px-6 py-3 text-gray-700 hover:text-gray-900 transition-colors">
               Contact
             </Link>

@@ -6,6 +6,41 @@ nav a {
     color: white;
 }
 
+.nav-link-group {
+    display: flex;
+    position: relative;
+}
+
+.nav-dropdown {
+    visibility: hidden;
+    display: flex;
+    position: absolute;
+    top: calc(100% - 0.45rem);
+    padding: 1rem;
+    cursor: pointer;
+    left: -1rem;
+    opacity: 0;
+    transition: 300ms ease-in-out;
+}
+
+/* To Do improve keyboard navigation */
+.nav-link-group:hover .nav-dropdown,
+.nav-link-group a:focus ~ .nav-dropdown {
+    visibility: visible;
+    display: flex;
+    position: absolute;
+    top: calc(100% - 0.45rem);
+    padding: 1rem;
+    cursor: pointer;
+    left: -1rem;
+    opacity: 1;
+    height: auto;
+}
+
+.nav-dropdown a {
+    background-color: #37373766;
+}
+
 @media (max-width: 1023px) {
     nav {
         background-color: white;
