@@ -49,7 +49,7 @@ export default function Contact() {
           </p>
           <div className="contact-hero">
             <div className='contact-hero-contents' style={{ backgroundImage: `url(${urlFor(about.backdropImage).width(1920).url()})`}}>
-              <form className="contact-form" name="contact" method="POST" netlify>
+              <form className="contact-form" name="contact" method="POST">
                 <p className="contact-text text-white text-xl">Have a question? Contact me below!</p>
                 <div className="form-row">
                   <div className="form-field">
@@ -112,6 +112,8 @@ export default function Contact() {
                     <label htmlFor="message">Message</label>
                   </div>
                 </div>
+                <input type="hidden" name="form-name" value="contact" />
+
 
                 <button type="submit" className="submit-button">Submit</button>
               </form>
