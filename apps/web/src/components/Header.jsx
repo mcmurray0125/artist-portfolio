@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import "../styles/header.css"
 
 // Header option. Possibly move to a context in the future
@@ -7,13 +7,28 @@ const FIXED_HEADER = false;
 
 const Header = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const headerRef = useRef(null);
 
   const setMobileOpen = () => {
     setIsMobileOpen(!isMobileOpen);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMobileOpen && headerRef.current && !headerRef.current.contains(event.target)) {
+        setIsMobileOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isMobileOpen]);
+
   return (
-    <header className={`shadow-md bg-gray-500 ${FIXED_HEADER ? 'fixed lg:mt-header-top top-0' : 'relative'} w-full`}>
+    <header ref={headerRef} className={`shadow-md bg-gray-500 ${FIXED_HEADER ? 'fixed lg:mt-header-top top-0' : 'relative'} w-full`}>
       <div className="container header-items-wrapper mx-auto h-header-height flex lg:justify-center items-center">
 
         {/* Navigation */}
