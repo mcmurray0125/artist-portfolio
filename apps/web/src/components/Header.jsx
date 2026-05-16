@@ -6,39 +6,44 @@ import "../styles/header.css"
 const FIXED_HEADER = false;
 
 const Header = () => {
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isMobileMenuOpen, setisMobileMenuOpen] = useState(false);
   const headerRef = useRef(null);
 
-  const setMobileOpen = () => {
-    setIsMobileOpen(!isMobileOpen);
+  const toggleMobileMenu = () => {
+    setisMobileMenuOpen(!isMobileMenuOpen);
   };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isMobileOpen && headerRef.current && !headerRef.current.contains(event.target)) {
-        setIsMobileOpen(false);
+      if (!isMobileMenuOpen) return;
+
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        event.preventDefault();
+        event.stopPropagation();
+        setisMobileMenuOpen(false);
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
+    // Use capture phase to intercept before React's event handlers
+    document.addEventListener('click', handleClickOutside, true);
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('click', handleClickOutside, true);
     };
-  }, [isMobileOpen]);
+  }, [isMobileMenuOpen]);
 
   return (
     <header ref={headerRef} className={`shadow-md bg-gray-500 ${FIXED_HEADER ? 'fixed lg:mt-header-top top-0' : 'relative'} w-full`}>
       <div className="container header-items-wrapper mx-auto h-header-height flex lg:justify-center items-center">
 
         {/* Navigation */}
-        <nav className={`flex flex-col lg:flex-row items-center lg:justify-between ${isMobileOpen ? 'open' : ''}`}>
+        <nav className={`flex flex-col lg:flex-row items-center lg:justify-between ${isMobileMenuOpen ? 'open' : ''}`}>
           {/* Mobile Menu Header */}
           <div className='mobile-menu-header flex lg:hidden'>
             <Link to="/" className="brand text-base px-6 py-3 text-black uppercase hover:text-gray-600 whitespace-nowrap transition-colors">
               Jake Germann Art
             </Link>
-            <button onClick={() => setMobileOpen()} className="mobile-menu-close">
+            <button onClick={() => toggleMobileMenu()} className="mobile-menu-close">
               <i className="fa-solid fa-square-xmark text-gray"></i>
             </button>
           </div>
@@ -84,7 +89,7 @@ const Header = () => {
           <Link to="/" className="brand text-base px-6 py-3 text-black uppercase hover:text-gray-600 whitespace-nowrap transition-colors">
             Jake Germann Art
           </Link>
-          <button onClick={() => setMobileOpen()} className="hamburger text-gray-700 hover:text-gray-900 focus:outline-none">
+          <button onClick={() => toggleMobileMenu()} className="hamburger text-gray-700 hover:text-gray-900 focus:outline-none">
             <i className="text-gray fa-solid fa-bars"></i>
           </button>
         </div>
