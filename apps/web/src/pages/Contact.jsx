@@ -48,7 +48,12 @@ export default function Contact() {
             <a href="mailto:Jakegermann@outlook.com">Jakegermann@outlook.com</a>
           </p>
           <div className="contact-hero">
-            <div className='contact-hero-contents' style={{ backgroundImage: `url(${urlFor(about.backdropImage).width(1920).url()})`}}>
+            <div className='contact-hero-contents'
+              style={{
+                backgroundImage: `url(${urlFor(about.backdropImage).width(1920).url()})`,
+                backgroundSize: 'contain'
+              }}
+            >
               <form className="contact-form" name="contact" method="POST">
                 <p className="contact-text text-white text-xl">Have a question? Contact me below!</p>
                 <div className="form-row">
