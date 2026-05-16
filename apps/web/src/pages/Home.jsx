@@ -4,6 +4,7 @@ import { urlFor } from '../sanity/utilities';
 import { PortableText } from '@portabletext/react';
 import HomePageLayout from '../layouts/HomePageLayout';
 import { HomePageCarousel } from '../components/HomePageCarousel';
+import ImageLink from '../components/ImageLink';
 
 export default function Home() {
   const [homepage, setHomepage] = useState(null); // or [] if expecting an array
@@ -28,19 +29,19 @@ export default function Home() {
 
   return (
     <HomePageLayout>
-      <HomePageCarousel featuredArtworks={homepage?.featuredArtworks} />
+      <div className="hidden lg:block">
+        <HomePageCarousel featuredArtworks={homepage?.featuredArtworks} />
+      </div>
+
+      <div className="block lg:hidden">
+        {homepage?.featuredArtworks?.map((artwork, index) => (
+          <ImageLink key={index} artwork={artwork} />
+        ))}
+      </div>
+
       {homepage?.homepageDisclaimer && (
         <small className='homepage-disclaimer'>{homepage.homepageDisclaimer}</small>
       )}
-      {/* <div id="hero-image">
-        {homepage?.heroImage && (
-          <img
-            src={urlFor(homepage.heroImage)}
-            alt={homepage?.heroImageAlt || 'Placeholder image'}
-            className="w-full h-full object-cover"
-          />
-        )}
-      </div> */}
     </HomePageLayout>
   )
 }
